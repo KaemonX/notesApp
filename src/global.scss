@@ -35,3 +35,31 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+@media (prefers-color-scheme: dark) {
+  ion-content {
+    --background: radial-gradient(circle at top right, #2c2f4a, #0f1224 60%);
+    color: #eaeaf0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  ion-content {
+    --background: linear-gradient(180deg, #f5f7fa, #e4ecf7);
+    color: #111827;
+  }
+}
+
+* {
+  touch-action: manipulation;
+}
+
+ion-label[role="button"] {
+  cursor: pointer;
+}
+
+ion-item,
+ion-label {
+  -webkit-tap-highlight-color: transparent;
+}
+

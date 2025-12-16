@@ -1,0 +1,60 @@
+<ion-header translucent>
+  <ion-toolbar class="note-header">
+
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/home"
+        text="">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      <div class="header-title">
+        Poznámka
+        <span class="header-subtitle">
+          úprava obsahu
+        </span>
+      </div>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        class="save-btn"
+        (click)="save()">
+        ULOŽIT
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+  <div class="note-wrapper">
+
+    <div class="note-card">
+
+      <ion-input
+        class="note-title"
+        placeholder="Název poznámky"
+        [(ngModel)]="note.title">
+      </ion-input>
+
+      <ion-textarea
+        class="note-content"
+        placeholder="Text poznámky"
+        autoGrow="true"
+        [(ngModel)]="note.content">
+      </ion-textarea>
+
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="insertRandomQuote()" color="secondary">
+    <ion-icon name="sparkles-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+

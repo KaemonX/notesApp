@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="page-title">
+      <div class="title-main">Poznámky</div>
+      <div class="title-sub">
+        rychlé myšlenky · nápady · úkoly
+      </div>
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="home-container">
+
+    <ion-searchbar
+      placeholder="Hledat poznámky"
+      [(ngModel)]="search"
+      class="search"
+      animated="true"
+      debounce="150">
+    </ion-searchbar>
+
+    <ion-item-sliding *ngFor="let note of filteredNotes">
+
+      <ion-item
+        lines="none"
+        class="note-card"
+        [routerLink]="['/note', note.id]">
+
+        <ion-label>
+          <h2>{{ note.title }}</h2>
+          <p>{{ note.content }}</p>
+          <small>Upraveno: {{ format(note.updatedAt) }}</small>
+        </ion-label>
+
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="delete(note)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </div>
+</ion-content>
+
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button [routerLink]="['/note']">
+    <ion-icon name="pencil"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
